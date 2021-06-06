@@ -5,7 +5,7 @@
 
 Here are some ideas to get you started:
 
-- I’m currently working on a project to develope a website for an academy 
+- I’m currently working on a project to develop a website for an academy 
 -I’m currently learning html, php java script 
 - I’m looking to collaborate on bigger projects 
 -
