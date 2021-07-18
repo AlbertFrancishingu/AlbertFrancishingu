@@ -1,6 +1,6 @@
 <?php session_start();
     include("includes/connection.php");
-   if(!isset($_SESSION['user_id'])){
+   if(!isset($_SESSION['id'])){
     header("location:login.php?ref_denied");
     }else{
    @$firstName = $_SESSION['firstName'];
@@ -26,7 +26,7 @@
 ?>
 <?php
   if (isset($_POST["upload"])) {
-    $viewId = $_SESSION['user_id'];
+    $viewId = $_SESSION['id'];
     @$profile_image = $_FILES['photo']['name'];
     @$extentsion = strtolower(substr($profile_image, strpos($profile_image, '.') + 1));
     @$file_size = $_FILES['photo']['size'];
@@ -113,6 +113,7 @@
         <div id="navbar" class="collapse navbar-collapse">
 
           <ul class="nav navbar-nav navbar-right">
+              <li><a href="chat.php"><span class="glyphicon glyphicon-chart"></span> Go to Chat</a></li>
               <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -202,8 +203,8 @@
           <div class="panel-body">
             <form action="student.php" method="post" enctype="multipart/form-data">
               <?php
-                  $viewId = $_SESSION['user_id'];
-                  $select = $dbconnect->query("SELECT * FROM users WHERE user_id = $viewId") or die ("Fail to fetch record<br/>" . $dbconnect->error);
+                  $viewId = $_SESSION['id'];
+                  $select = $dbconnect->query("SELECT * FROM users WHERE id = $viewId") or die ("Fail to fetch record<br/>" . $dbconnect->error);
                   if($select->num_rows>=1){
                   while($row = $select->fetch_assoc()){
                       echo '<img height="40%" alt="profile Image" width="100%" src="images/'.$row['image'].'">';

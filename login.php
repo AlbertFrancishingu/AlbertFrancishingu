@@ -38,7 +38,7 @@ include("includes/connection.php");
             //sucsss
             while($row = $usercheck->fetch_assoc()){
               //create login sessions
-              $_SESSION['user_id'] = $row['user_id'];
+              $_SESSION['id'] = $row['id'];
               $_SESSION['firstName'] = $row['firstName'];
               $_SESSION['lastName'] = $row['lastName'];
               $_SESSION['email'] = $row['email'];
@@ -71,7 +71,7 @@ include("includes/connection.php");
                 <?php } ?>
               </div>
             <div class="input">
-              <input type="email" name="email" placeholder="Email" required="on"/>
+              <input type="text" name="email" placeholder="Email" required="on"/>
             </div>  
             
             <div class="input">
@@ -90,3 +90,5 @@ include("includes/connection.php");
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
